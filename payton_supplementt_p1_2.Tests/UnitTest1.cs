@@ -13,7 +13,7 @@ namespace payton_supplementt_p1_2.Tests
 
             for (int i = 0; i < sampleSize; i++)
             {
-                double value = GenerateNormalRandom(mean, stdDev);
+                double value = payton_supplementt_p1_2.GenerateNormalRandom(mean, stdDev);
                 sum += value;
                 sumSquares += Math.Pow(value - mean, 2);
             }
