@@ -1,6 +1,6 @@
 ﻿namespace payton_supplementt_p1_2
 {
-    public class Class1
+    public class payton_supplementt_p1_2
     {
 
     }
