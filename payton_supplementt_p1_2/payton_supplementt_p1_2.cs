@@ -12,7 +12,7 @@ namespace payton_supplementt_p1_2
         /// <param name="mean">The mean of the distribution.</param>
         /// <param name="stdDev">The standard deviation of the distribution.</param>
         /// <returns>Returns a normally distributed random number given a standard deviation and mean.</returns>
-        public static double GenerateNormalRandom(double mean, double stdDev)
+        public static double GenerateNormalRandom(double mean, double stdDev, Random random = null)
         {
             double u1 = 1.0 - random.NextDouble(); //uniform(0,1] random doubles
             double u2 = 1.0 - random.NextDouble();
@@ -45,7 +45,12 @@ namespace payton_supplementt_p1_2
 
         public static (string, (int, int, int)) GenerateRandomColor(Random random = null)
         {
-            throw new NotImplementedException();
+            random = new Random();
+            int r = random.Next(256);
+            int g = random.Next(256);
+            int b = random.Next(256);
+            string hex = $"#{r:X2}{g:X2}{b:X2}";
+            return (hex, (r, g, b));
         }
     }
 }
