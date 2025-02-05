@@ -1,4 +1,6 @@
-﻿namespace payton_supplementt_p1_2
+﻿using System.Text;
+
+namespace payton_supplementt_p1_2
 {
     public class payton_supplementt_p1_2
     {
@@ -18,9 +20,20 @@
             return mean + stdDev * normal; //function returns random normal(mean,stdDev^2)
         }
 
-        public static string GeneratePasswordString(int length, Random random = null)
+        public static string GeneratePasswordString(int length)
         {
-            throw new NotImplementedException();
+            if (length <= 0) throw new ArgumentException("Length must be > than 0.");
+
+            const string charSet = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789_";
+            StringBuilder password = new StringBuilder();
+
+            for (int i = 0; i < length; i++)
+            {
+                int index = random.Next(charSet.Length);
+                password.Append(charSet[index]);
+            }
+
+            return password.ToString();
         }
 
         public static (string, (int, int, int)) GenerateRandomColor(Random random = null)
