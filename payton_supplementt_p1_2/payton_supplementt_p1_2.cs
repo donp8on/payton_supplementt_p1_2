@@ -20,7 +20,14 @@ namespace payton_supplementt_p1_2
             return mean + stdDev * normal; //function returns random normal(mean,stdDev^2)
         }
 
-        public static string GeneratePasswordString(int length)
+        /// <summary>
+        /// Generates a random password string of a given length.
+        /// </summary>
+        /// <param name="length">The length of the password.</param>
+        /// <returns>A password that consists of the character set of A-Z, a-z, 0-9, 
+        /// and underscore given a length</returns>
+        /// <exception cref="ArgumentException">Throws an exception if given length is less than 0.</exception>
+        public static string GeneratePasswordString(int length, Random random = null)
         {
             if (length <= 0) throw new ArgumentException("Length must be > than 0.");
 
