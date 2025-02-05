@@ -23,5 +23,20 @@ namespace payton_supplementt_p1_2.Tests
 
             Assert.InRange(actualMean, mean - 1, mean + 1);
         }
+
+        [Fact]
+        public void ShouldGeneratePasswordWithLengthAndReturnsConsistentResult()
+        {
+            // Arrange
+            int length = 10;
+            Random seededRandom = new Random(42);
+
+            // Act
+            string password1 = payton_supplementt_p1_2.GeneratePasswordString(length, seededRandom);
+            string password2 = payton_supplementt_p1_2.GeneratePasswordString(length, new Random(42));
+
+            // Assert
+            Assert.Equal(password1, password2);
+        }
     }
 }
